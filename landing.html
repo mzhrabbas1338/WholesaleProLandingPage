@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WholesalePro SaaS - Official Desktop Software & Business Management Suite</title>
+  <meta name="description"
+    content="Download WholesalePro SaaS - The #1 Billing, WhatsApp Automation & Inventory Software for Wholesalers & Distributors. Download Desktop App (.exe) and Sales Manual.">
+  <link rel="icon" type="image/png" href="icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #050811;
+      --bg-card: rgba(13, 20, 36, 0.75);
+      --bg-card-hover: rgba(23, 33, 56, 0.85);
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.45);
+      --accent: #f59e0b;
+      --accent-glow: rgba(245, 158, 11, 0.4);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.4);
+      --purple: #8b5cf6;
+      --purple-glow: rgba(139, 92, 246, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-highlight: rgba(59, 130, 246, 0.4);
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-code: 'Fira Code', monospace;
+      --radius-lg: 24px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Glowing Animated Orbs */
+    .ambient-blur-1 {
+      position: absolute;
+      top: -160px;
+      left: 15%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(139, 92, 246, 0.1) 45%, rgba(5, 8, 17, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb1 16s ease-in-out infinite alternate;
+    }
+
+    .ambient-blur-2 {
+      position: absolute;
+      top: 800px;
+      right: 5%;
+      width: 750px;
+      height: 750px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(236, 72, 153, 0.08) 50%, rgba(5, 8, 17, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb2 20s ease-in-out infinite alternate;
+    }
+
+    .ambient-blur-3 {
+      position: absolute;
+      top: 1900px;
+      left: 5%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(59, 130, 246, 0.1) 50%, rgba(5, 8, 17, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb1 18s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatOrb1 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(60px, 40px) scale(1.1);
+      }
+    }
+
+    @keyframes floatOrb2 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(-50px, 50px) scale(1.15);
+      }
+    }
+
+    /* Floating Glassmorphic Top Menu Bar Header */
+    header {
+      position: sticky;
+      top: 16px;
+      z-index: 1000;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-container {
+      background: rgba(10, 16, 30, 0.82);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled .nav-container {
+      background: rgba(8, 12, 24, 0.92);
+      border-color: rgba(59, 130, 246, 0.35);
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.85), 0 0 25px rgba(59, 130, 246, 0.2);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #f59e0b 100%);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: #fff;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      position: relative;
+    }
+
+    .version-tag {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .version-tag .dot-live {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse 1.5s infinite;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      display: block;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links a.active {
+      color: #60a5fa;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.15));
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.28);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.6);
+    }
+
+    /* Animated Shimmer Accent Button */
+    .btn-shimmer {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #f59e0b 100%);
+      background-size: 200% auto;
+      color: #fff;
+      box-shadow: 0 4px 22px var(--accent-glow);
+      animation: shimmerGradient 4s linear infinite;
+    }
+
+    .btn-shimmer:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.65);
+    }
+
+    @keyframes shimmerGradient {
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    .btn-emerald {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--emerald-glow);
+    }
+
+    .btn-emerald:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(16, 185, 129, 0.55);
+    }
+
+    /* Mobile Hamburger Menu Toggle Button */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .mobile-menu-btn span {
+      width: 100%;
+      height: 2.5px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .mobile-menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Mobile Nav Drawer Overlay */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 16px;
+      right: 16px;
+      background: rgba(10, 16, 32, 0.95);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 20px;
+      padding: 24px;
+      z-index: 1050;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+      animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .mobile-drawer .mobile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .mobile-drawer .mobile-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      display: block;
+    }
+
+    .mobile-drawer .mobile-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Real-Time Floating Activity Ticker Toast */
+    .activity-ticker {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      z-index: 950;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 999px;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.2);
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      max-width: 420px;
+      transition: all 0.4s ease;
+    }
+
+    .activity-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 80px 24px 70px;
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-badges-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .floating-feature-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #93c5fd;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.12);
+    }
+
+    .visitor-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.7rem, 5.8vw, 4.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #c084fc 45%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      max-width: 840px;
+      margin: 0 auto 38px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    /* Standalone Installer Download Card Banner */
+    .installer-download-card {
+      max-width: 1120px;
+      margin: 0 auto 65px;
+      background: linear-gradient(135deg, rgba(23, 33, 56, 0.95), rgba(13, 20, 36, 0.98));
+      border: 1px solid var(--border-highlight);
+      border-radius: var(--radius-lg);
+      padding: 32px 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      text-align: left;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .installer-download-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .installer-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .installer-meta {
+      display: flex;
+      gap: 18px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .installer-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* UI Mockup Container */
+    .dashboard-preview-wrapper {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+      border-radius: 26px;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.03));
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.8), 0 0 40px rgba(59, 130, 246, 0.2);
+    }
+
+    .dashboard-preview-card {
+      background: #090e1a;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .preview-header {
+      height: 48px;
+      background: #131b2e;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red {
+      background: #ef4444;
+    }
+
+    .dot-yellow {
+      background: #f59e0b;
+    }
+
+    .dot-green {
+      background: #10b981;
+    }
+
+    .preview-title {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .preview-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Stats & Live Visitor Bar */
+    .stats-section {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(13, 20, 36, 0.6);
+      padding: 50px 24px;
+      margin-top: 70px;
+    }
+
+    .stats-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 6px;
+    }
+
+    /* Interactive Showcase Tabs */
+    .showcase-section {
+      padding: 110px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 60px;
+    }
+
+    .section-tag {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 13px 26px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 6px 25px var(--primary-glow);
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 26px;
+      padding: 48px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .tab-content.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      animation: fadeIn 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tab-text h3 {
+      font-family: var(--font-heading);
+      font-size: 1.95rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .tab-text p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 1.08rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-main);
+      font-size: 0.98rem;
+    }
+
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--emerald);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .tab-visual {
+      background: #070c18;
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid var(--border-color);
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .code-box {
+      font-family: var(--font-code);
+      color: #38bdf8;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* Thermal Receipt Animation Box */
+    .receipt-paper {
+      background: #fff;
+      color: #1e293b;
+      font-family: var(--font-code);
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      animation: paperFeed 1.2s ease-out;
+    }
+
+    @keyframes paperFeed {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Master Documentation & Sales Manual Viewer Section */
+    .docs-section {
+      padding: 100px 24px;
+      background: rgba(13, 20, 36, 0.5);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .docs-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-highlight);
+      border-radius: 26px;
+      padding: 44px;
+    }
+
+    .docs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .docs-title {
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .docs-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .docs-tab {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .docs-tab.active {
+      background: rgba(59, 130, 246, 0.18);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+
+    .docs-body {
+      background: #070c18;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 30px;
+      color: #e2e8f0;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-height: 420px;
+      overflow-y: auto;
+    }
+
+    .docs-body h4 {
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    /* ROI Calculator Section */
+    .calculator-section {
+      padding: 90px 24px;
+    }
+
+    .calc-card {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-highlight);
+      border-radius: 26px;
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+    }
+
+    .slider-group {
+      margin-bottom: 28px;
+    }
+
+    .slider-group label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #f1f5f9;
+    }
+
+    .slider-input {
+      width: 100%;
+      height: 10px;
+      border-radius: 5px;
+      background: #1e293b;
+      outline: none;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .calc-results {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.1));
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .savings-val {
+      font-family: var(--font-heading);
+      font-size: 3.4rem;
+      font-weight: 900;
+      color: var(--accent);
+      margin: 12px 0;
+      text-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 110px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .pricing-toggle-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 50px;
+    }
+
+    .toggle-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      padding: 4px;
+      display: flex;
+      cursor: pointer;
+    }
+
+    .toggle-opt {
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.25s ease;
+    }
+
+    .toggle-opt.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 26px;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .pricing-card:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .pricing-card.popular {
+      border-color: var(--primary);
+      box-shadow: 0 15px 50px var(--primary-glow);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -15px;
+      right: 28px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 999px;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    .plan-name {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      font-family: var(--font-heading);
+      font-size: 3.1rem;
+      font-weight: 900;
+      color: #fff;
+      margin: 18px 0;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin: 24px 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex-grow: 1;
+    }
+
+    .plan-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 90px 24px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .faq-question {
+      padding: 24px 28px;
+      font-weight: 600;
+      font-size: 1.08rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 0 28px 24px;
+      color: var(--text-muted);
+      display: none;
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Floating WhatsApp Contact */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 64px;
+      height: 64px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+      text-decoration: none;
+      z-index: 999;
+      font-size: 1.75rem;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.14);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 50px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+
+      .nav-links,
+      .nav-actions {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .installer-download-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .tab-content.active {
+        grid-template-columns: 1fr;
+      }
+
+      .calc-card {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-ticker {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="ambient-blur-1"></div>
+  <div class="ambient-blur-2"></div>
+  <div class="ambient-blur-3"></div>
+
+  <!-- Real-Time Activity Ticker Toast -->
+  <div class="activity-ticker" id="activity-ticker">
+    <div class="activity-icon">⚡</div>
+    <div id="activity-msg"><strong>Samar Wholesalers Lahore</strong> generated Invoice #INV-8941 (Rs 326,200)</div>
+  </div>
+
+  <!-- Floating Glassmorphic Header Navbar -->
+  <header id="main-header">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-badge">W</div>
+        <span>WholesalePro</span>
+        <span class="version-tag"><span class="dot-live"></span> v5.0 LIVE</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" class="active">Features</a></li>
+        <li><a href="#showcase">Showcase</a></li>
+        <li><a href="#docs">Docs & Manual</a></li>
+        <li><a href="#calculator">ROI Calculator</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobile-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <ul class="mobile-links" style="margin-bottom: 0;">
+        <li><a href="#features" onclick="toggleMobileMenu()">Features</a></li>
+        <li><a href="#showcase" onclick="toggleMobileMenu()">Demo Showcase</a></li>
+        <li><a href="#docs" onclick="toggleMobileMenu()">Docs & Manual</a></li>
+        <li><a href="#calculator" onclick="toggleMobileMenu()">ROI Calculator</a></li>
+        <li><a href="#pricing" onclick="toggleMobileMenu()">Pricing</a></li>
+        <li><a href="#faq" onclick="toggleMobileMenu()">FAQ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="features">
+    <div class="hero-badges-wrapper">
+      <div class="visitor-pill">
+        <span class="pulse-dot"></span>
+        <span id="live-visitor-count">🟢 154 Wholesalers & Distributors Active Now</span>
+      </div>
+      <div class="floating-feature-pill">⚡ 10x Billing Velocity</div>
+      <div class="floating-feature-pill">🤖 Auto WhatsApp Bot</div>
+      <div class="floating-feature-pill">🛡️ 100% Offline SQLite</div>
+    </div>
+
+    <h1 class="hero-title">
+      The All-In-One Billing & Ledger Suite Built for <span class="gradient-text">Wholesalers & Distributors</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Streamline bulk invoicing with Excel-like keyboard speed, automated WhatsApp balance bots, real-time B2B retailer
+      ordering portals, and complete offline security.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="/download" class="btn btn-shimmer" style="padding: 15px 34px; font-size: 1.08rem;">
+        💾 Download Desktop App (.exe)
+      </a>
+      <a href="/" class="btn btn-primary" style="padding: 15px 30px; font-size: 1.08rem;">
+        🚀 Launch Web App
+      </a>
+      <a href="https://gofile.io/d/9mjpU3" target="_blank" class="btn btn-secondary btn-user-manual"
+        style="padding: 15px 30px; font-size: 1.08rem;">
+        📖 User Manual
+      </a>
+      <a href="https://wa.me/923094815155?text=Hi%20WholesalePro%20Team%2C%20I%20want%20a%20demo%20and%20activation%20license!"
+        target="_blank" class="btn btn-secondary" style="padding: 15px 30px; font-size: 1.08rem;">
+        💬 Open WhatsApp Chat
+      </a>
+    </div>
+
+    <!-- Standalone Installer Download Card Banner -->
+    <div class="installer-download-card">
+      <div class="installer-info">
+        <h3>💾 Standalone Desktop Application Installer</h3>
+        <p style="color: var(--text-muted); font-size: 0.98rem;">Install WholesalePro directly on Windows for offline
+          multi-user billing & instant WhatsApp bot.</p>
+        <div class="installer-meta">
+          <span>📦 Size: ~118 MB</span>
+          <span>⚡ Version: 5.0.0 (Latest)</span>
+          <span>🔒 ASAR Secure & SQLite Offline</span>
+        </div>
+      </div>
+      <div>
+        <a href="/download" class="btn btn-emerald" style="padding: 14px 28px; font-size: 1.05rem;">
+          ⬇️ Direct Download .exe
+        </a>
+      </div>
+    </div>
+
+    <!-- UI Mockup Container -->
+    <div class="dashboard-preview-wrapper">
+      <div class="dashboard-preview-card">
+        <div class="preview-header">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="preview-title">WholesalePro SaaS v5.0.0 • Live Interactive Dashboard</div>
+          <div style="width: 40px;"></div>
+        </div>
+        <div class="preview-image-container">
+          <img src="wholesalepro_dashboard_preview.png" alt="WholesalePro SaaS Dashboard UI">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats & Visitor Traffic -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" id="counter-installs">2,540+</div>
+        <div class="stat-label">Total Desktop Installs</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10x</div>
+        <div class="stat-label">Faster Checkout Invoicing</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Anti-Ban Safe WhatsApp Delivery</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">0s</div>
+        <div class="stat-label">Cloud Downtime (Offline First)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature Showcase Tabs -->
+  <section id="showcase" class="showcase-section">
+    <div class="section-header">
+      <div class="section-tag">Interactive Features</div>
+      <h2 class="section-title">Designed for Extreme Speed & Customer Satisfaction</h2>
+    </div>
+
+    <div class="tab-buttons">
+      <button class="tab-btn active" onclick="switchTab('billing')">⚡ Fast Billing POS</button>
+      <button class="tab-btn" onclick="switchTab('whatsapp')">🤖 WhatsApp AI Bot</button>
+      <button class="tab-btn" onclick="switchTab('b2b')">📱 B2B Ordering Portal</button>
+      <button class="tab-btn" onclick="switchTab('closing')">📊 Year-End Closing</button>
+    </div>
+
+    <!-- Tab 1: Billing -->
+    <div id="tab-billing" class="tab-content active">
+      <div class="tab-text">
+        <h3>Excel-Style Rapid Invoicing</h3>
+        <p>Type products and quantities instantly without touching the mouse. Print customized Samar Traders A4 or POS
+          thermal receipts with past balance carryover in 1 click.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> Custom Samar Traders A4 & POS receipt designs</li>
+          <li><span class="check-icon">✓</span> Keyboard shortcuts (Ctrl+S, Enter, F2, F9)</li>
+          <li><span class="check-icon">✓</span> Auto-calculate net balances and previous credit</li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="receipt-paper">
+          <div style="text-align: center; font-weight: bold; font-size: 1rem; margin-bottom: 8px;">SAMAR TRADERS
+            WHOLESALE</div>
+          <div style="text-align: center; font-size: 0.78rem; color: #64748b; margin-bottom: 12px;">Invoice
+            #INV-2026-8941 • 2026-08-09</div>
+          <hr style="border: 0; border-top: 1px dashed #cbd5e1; margin: 8px 0;">
+          <div style="display: flex; justify-content: space-between;"><span>Super Sugar 50kg x 5</span><span>Rs
+              22,500</span></div>
+          <div style="display: flex; justify-content: space-between;"><span>Cooking Oil 5L x 10</span><span>Rs
+              28,000</span></div>
+          <div style="display: flex; justify-content: space-between;"><span>Basmati Rice 20kg x 8</span><span>Rs
+              36,000</span></div>
+          <hr style="border: 0; border-top: 1px dashed #cbd5e1; margin: 8px 0;">
+          <div style="display: flex; justify-content: space-between; font-weight: 600;"><span>Current
+              Subtotal:</span><span>Rs 86,500</span></div>
+          <div style="display: flex; justify-content: space-between; color: #64748b;"><span>Prev Ledger
+              Bal:</span><span>Rs 42,000</span></div>
+          <hr style="border: 0; border-top: 2px solid #0f172a; margin: 8px 0;">
+          <div
+            style="display: flex; justify-content: space-between; font-weight: 900; font-size: 1.05rem; color: #1e3a8a;">
+            <span>NET PAYABLE:</span><span>Rs 128,500</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: WhatsApp -->
+    <div id="tab-whatsapp" class="tab-content">
+      <div class="tab-text">
+        <h3>Automated WhatsApp Bot & Anti-Ban Queue</h3>
+        <p>Customers can text <code>.balance</code> or <code>.ledger</code> to receive instant PDF statements via
+          WhatsApp. Automated background queue protects your number from bans.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> Smart Link Identity JID to phone number mapping</li>
+          <li><span class="check-icon">✓</span> Auto-send PDF invoice directly upon invoice save</li>
+          <li><span class="check-icon">✓</span> Humanized anti-ban broadcast delays (8-15s)</li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="code-box">
+          📲 Customer: ".balance"<br>
+          🤖 Bot Reply: "Hello Samar Wholesalers! Your outstanding balance is Rs 326,200."<br><br>
+          📲 Customer: ".ledger"<br>
+          🤖 Bot Reply: "Attached is your complete PDF statement." 📎 [Statement.pdf]
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: B2B Portal -->
+    <div id="tab-b2b" class="tab-content">
+      <div class="tab-text">
+        <h3>Mobile B2B Retailer Ordering Portal</h3>
+        <p>Give your retailers a modern mobile ordering webpage. Retailers log in using customer code, view live stock,
+          place orders, and sync directly to your desktop app.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> Real-time outstanding ledger balance display</li>
+          <li><span class="check-icon">✓</span> One-Click "Approve & Billing" on cash counter</li>
+          <li><span class="check-icon">✓</span> Free hosting compatible on Vercel or Netlify</li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="code-box">
+          🌐 Retailer Portal Status:<br>
+          Order #B2B-1092 Received!<br>
+          Items: 100 Cartons Dry Rice<br>
+          Pending Review Badge: [1 Pending]<br>
+          Action: Click [Approve & Billing] to convert.
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Closing -->
+    <div id="tab-closing" class="tab-content">
+      <div class="tab-text">
+        <h3>Fiscal Year Closing & Archive Protection</h3>
+        <p>Close your financial period with zero hassle. Automatically carries over customer balances to the new year
+          while archiving past databases for instant restoration.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> 1-Click fiscal year rollover</li>
+          <li><span class="check-icon">✓</span> Preserves all items, rates, and customer profiles</li>
+          <li><span class="check-icon">✓</span> Automatic safety backup before period restoration</li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="code-box">
+          📦 Period Archive Created: database_25-26.sqlite<br>
+          Calculated Balances: 142 Customers Updated<br>
+          New Opening Balances Saved ✅<br>
+          Status: Ready for Fiscal Year 2026-2027!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Documentation & Sales Manual Section -->
+  <section id="docs" class="docs-section">
+    <div class="docs-container">
+      <div class="docs-header">
+        <div>
+          <div class="section-tag" style="margin-bottom: 4px;">Documentation & Sales Manual</div>
+          <div class="docs-title">Master Software Guide & User Manual</div>
+        </div>
+        <div>
+          <a href="https://gofile.io/d/9mjpU3" target="_blank" class="btn btn-secondary btn-user-manual">
+            📖 Open User Manual & Sales Guide
+          </a>
+        </div>
+      </div>
+
+      <div class="docs-tabs">
+        <button class="docs-tab active" onclick="switchDocTab('overview')">System Overview</button>
+        <button class="docs-tab" onclick="switchDocTab('keyboard')">Keyboard Controls</button>
+        <button class="docs-tab" onclick="switchDocTab('whatsapp-guide')">WhatsApp Bot Setup</button>
+        <button class="docs-tab" onclick="switchDocTab('closing-guide')">Year-End Rollover</button>
+      </div>
+
+      <div id="doc-overview" class="docs-body">
+        <h4>📌 System Overview & Architecture</h4>
+        <p>WholesalePro Billing & Management System is engineered for wholesale businesses, traders, and bulk stock
+          distributors requiring high transaction velocity, precision inventory tracking, and offline reliability.</p>
+        <p style="margin-top: 10px;">Key Capabilities include SQLite local database storage, automatic WhatsApp bill
+          transmission, Samar Traders A4/POS receipt formatting, and mobile B2B ordering portal integration.</p>
+      </div>
+
+      <div id="doc-keyboard" class="docs-body" style="display: none;">
+        <h4>⌨️ Keyboard Shortcuts & Excel-Like Navigation</h4>
+        <p>• <strong>Ctrl + S</strong>: Save & Print Current Invoice</p>
+        <p>• <strong>F2</strong>: Quick Item Search & Add to Bill</p>
+        <p>• <strong>F9</strong>: Open Customer Ledger Summary</p>
+        <p>• <strong>Enter / Tab</strong>: Move seamlessly across item table cells without mouse interaction.</p>
+      </div>
+
+      <div id="doc-whatsapp-guide" class="docs-body" style="display: none;">
+        <h4>🤖 WhatsApp Bot & Anti-Ban Queue Engine</h4>
+        <p>• <strong>Automated Balance Enquiry</strong>: When a customer sends <code>.balance</code>, the background
+          listener responds with their current outstanding ledger balance.</p>
+        <p>• <strong>PDF Ledger Request</strong>: Texting <code>.ledger</code> generates and transmits a complete
+          statement PDF.</p>
+        <p>• <strong>Anti-Ban Protection</strong>: Mass broadcasts are queued with 8-15 second random delays to protect
+          numbers from WhatsApp enforcement filters.</p>
+      </div>
+
+      <div id="doc-closing-guide" class="docs-body" style="display: none;">
+        <h4>📦 Fiscal Year Closing Procedure</h4>
+        <p>1. Navigate to <strong>Settings -> Backups & Sync -> Fiscal Year Closing</strong>.</p>
+        <p>2. Enter period label (e.g., 2025-2026) and click <em>Close Current Period</em>.</p>
+        <p>3. The system generates a standalone SQLite archive (`database_25-26.sqlite`), resets transaction history,
+          and carries over final balances as new Opening Balances.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI Calculator Section -->
+  <section id="calculator" class="calculator-section">
+    <div class="section-header">
+      <div class="section-tag">ROI & Efficiency Calculator</div>
+      <h2 class="section-title">Calculate Your Time & Money Savings</h2>
+    </div>
+
+    <div class="calc-card">
+      <div class="calc-inputs">
+        <div class="slider-group">
+          <label>Invoices Generated Per Day: <span id="val-invoices"
+              style="color: var(--primary); font-weight: 800;">50</span></label>
+          <input type="range" min="10" max="300" value="50" class="slider-input" id="input-invoices"
+            oninput="updateCalc()">
+        </div>
+
+        <div class="slider-group">
+          <label>Avg Payment Collection Delay (Days): <span id="val-delay"
+              style="color: var(--accent); font-weight: 800;">20</span></label>
+          <input type="range" min="5" max="60" value="20" class="slider-input" id="input-delay" oninput="updateCalc()">
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">
+          Estimated Time Saved / Month</div>
+        <div class="savings-val" id="res-hours">45 Hours</div>
+        <div style="font-size: 0.95rem; color: var(--emerald); font-weight: 600;">⚡ 3.5x Faster Payment Collections with
+          WhatsApp Bot</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="section-header">
+      <div class="section-tag">Transparent Pricing</div>
+      <h2 class="section-title">Choose the Plan That Fits Your Scale</h2>
+    </div>
+
+    <div class="pricing-toggle-wrapper">
+      <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: 500;">Billed Monthly</span>
+      <div class="toggle-pill" onclick="toggleBillingPeriod()">
+        <div class="toggle-opt active" id="opt-monthly">Monthly</div>
+        <div class="toggle-opt" id="opt-annual">Annual (Save 20%)</div>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Starter Plan -->
+      <div class="pricing-card">
+        <div class="plan-name">Basic Wholesale</div>
+        <div style="color: var(--text-muted); font-size: 0.92rem;">For small distributors & single shops</div>
+        <div class="plan-price" id="price-basic">15000 PKR <span
+            style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mo</span></div>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> Rapid POS & A4 Billing</li>
+          <li><span class="check-icon">✓</span> Unlimited Invoices & Customers</li>
+          <li><span class="check-icon">✓</span> PDF Ledger Export</li>
+          <li><span class="check-icon">✓</span> Offline Local SQLite Database</li>
+        </ul>
+        <a href="https://wa.me/923094815155?text=Hi%2C%20I%20want%20to%20subscribe%20to%20Basic%20Plan" target="_blank"
+          class="btn btn-secondary">Get Starter</a>
+      </div>
+
+      <!-- Business Pro Plan -->
+      <div class="pricing-card popular">
+        <div class="popular-badge">Most Popular</div>
+        <div class="plan-name">Wholesale Pro</div>
+        <div style="color: var(--text-muted); font-size: 0.92rem;">Complete SaaS Automation Suite</div>
+        <div class="plan-price" id="price-pro">25000 PKR <span
+            style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mo</span></div>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> <strong>Everything in Starter</strong></li>
+          <li><span class="check-icon">✓</span> WhatsApp Auto-Bot (.balance, .ledger)</li>
+          <li><span class="check-icon">✓</span> Anti-Ban Smart Broadcast Queue</li>
+          <li><span class="check-icon">✓</span> B2B Retailer Ordering Portal</li>
+          <li><span class="check-icon">✓</span> Samar Traders Custom Invoice Layouts</li>
+          <li><span class="check-icon">✓</span> Year-End Fiscal Closing & Restore</li>
+        </ul>
+        <a href="https://wa.me/923094815155?text=Hi%2C%20I%20want%20to%20subscribe%20to%20WholesalePro%20Plan"
+          target="_blank" class="btn btn-primary">Start Free Trial</a>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="pricing-card">
+        <div class="plan-name">Enterprise Custom</div>
+        <div style="color: var(--text-muted); font-size: 0.92rem;">Multi-branch & cloud sync custom setup</div>
+        <div class="plan-price">Custom</div>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> Everything in Pro</li>
+          <li><span class="check-icon">✓</span> Multi-Branch Data Aggregation</li>
+          <li><span class="check-icon">✓</span> Custom Receipt Header & Branding</li>
+          <li><span class="check-icon">✓</span> Dedicated 24/7 Priority Support</li>
+        </ul>
+        <a href="https://wa.me/923094815155?text=Hi%2C%20I%20need%20Enterprise%20Setup" target="_blank"
+          class="btn btn-secondary">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="section-header">
+      <div class="section-tag">Frequently Asked Questions</div>
+      <h2 class="section-title">Everything You Need to Know</h2>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">Does WholesalePro work offline without internet? <span>+</span></div>
+      <div class="faq-answer">Yes! WholesalePro is built offline-first using local SQLite database technology. You can
+        issue invoices and track stock even if your internet connection is down. Internet is only required when syncing
+        WhatsApp messages or Cloud B2B orders.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">How does the WhatsApp Anti-Ban protection work? <span>+</span></div>
+      <div class="faq-answer">Our broadcast queue uses humanized random delays (8 to 15 seconds per message) and local
+        Link Identity (LID) resolution to ensure your WhatsApp number remains safe and compliant.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">Can retailers order directly from mobile phones? <span>+</span></div>
+      <div class="faq-answer">Yes! WholesalePro comes with a responsive B2B Mobile Ordering web portal. Retailers log in
+        with their customer code, browse stock rates, and place orders directly to your desktop cashier queue.</div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/923094815155?text=Hello%20WholesalePro%20Team%2C%20I%20have%20a%20question" target="_blank"
+    class="whatsapp-float" title="Chat with us on WhatsApp">
+    💬
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 WholesalePro Inc. All rights reserved. • Built for Wholesalers & Distributors worldwide.</p>
+  </footer>
+
+  <script>
+    // External links state
+    const EXTERNAL_LINKS = {
+      exeInstallerDriveUrl: "https://gofile.io/d/6ZvsZg",
+      salesManualDriveUrl: "https://gofile.io/d/9mjpU3"
+    };
+
+    function handleExeDownload(event) {
+      if (EXTERNAL_LINKS.exeInstallerDriveUrl) {
+        event.preventDefault();
+        window.open(EXTERNAL_LINKS.exeInstallerDriveUrl, '_blank');
+      }
+    }
+
+    function handleManualDownload(event) {
+      if (EXTERNAL_LINKS.salesManualDriveUrl) {
+        event.preventDefault();
+        window.open(EXTERNAL_LINKS.salesManualDriveUrl, '_blank');
+      }
+    }
+
+    // Attach click listeners on load
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('a[href="/download"]').forEach(btn => {
+        btn.addEventListener('click', handleExeDownload);
+      });
+      document.querySelectorAll('a[href="WholeSale_Pro_Master_Documentation_and_Sales_Manual.docx"], a[href="https://gofile.io/d/9mjpU3"], a.btn-user-manual').forEach(btn => {
+        btn.addEventListener('click', handleManualDownload);
+      });
+
+      // ScrollSpy for Header Nav Links
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 120;
+          const sectionHeight = section.offsetHeight;
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+
+    function toggleMobileMenu() {
+      const btn = document.getElementById('mobile-toggle');
+      const drawer = document.getElementById('mobile-drawer');
+      btn.classList.toggle('open');
+      drawer.style.display = drawer.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    function switchDocTab(docId) {
+      document.querySelectorAll('.docs-tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.docs-body').forEach(body => body.style.display = 'none');
+
+      event.target.classList.add('active');
+      document.getElementById('doc-' + docId).style.display = 'block';
+    }
+
+    function toggleFaq(element) {
+      element.classList.toggle('open');
+    }
+
+    function updateCalc() {
+      const invoices = parseInt(document.getElementById('input-invoices').value);
+      const delay = parseInt(document.getElementById('input-delay').value);
+
+      document.getElementById('val-invoices').innerText = invoices;
+      document.getElementById('val-delay').innerText = delay;
+
+      const hoursSaved = Math.round((invoices * 3 * 30) / 60);
+      document.getElementById('res-hours').innerText = hoursSaved + " Hours";
+    }
+
+    let isAnnual = false;
+    function toggleBillingPeriod() {
+      isAnnual = !isAnnual;
+      document.getElementById('opt-monthly').classList.toggle('active', !isAnnual);
+      document.getElementById('opt-annual').classList.toggle('active', isAnnual);
+
+      document.getElementById('price-basic').innerHTML = isAnnual
+        ? '$23 <span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mo (billed annually)</span>'
+        : '$29 <span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mo</span>';
+
+      document.getElementById('price-pro').innerHTML = isAnnual
+        ? '$47 <span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mo (billed annually)</span>'
+        : '$59 <span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mo</span>';
+    }
+
+    // Dynamic Live Activity Feed Simulation Ticker
+    const ACTIVITIES = [
+      "⚡ Samar Wholesalers Lahore generated Invoice #INV-8941 (Rs 326,200)",
+      "🤖 Khan Traders Rawalpindi auto-requested PDF statement via WhatsApp",
+      "📦 Retailer #409 submitted new B2B Order #B2B-1092 (100 Cartons Rice)",
+      "💾 Master Distributors executed 1-Click Fiscal Year Close (Archive 2025-26)",
+      "🛒 Al-Madina Superstore added 50 Items via Excel-Speed POS Keyboard Shortcuts"
+    ];
+    let actIndex = 0;
+    setInterval(() => {
+      actIndex = (actIndex + 1) % ACTIVITIES.length;
+      const tickerEl = document.getElementById('activity-msg');
+      if (tickerEl) {
+        tickerEl.innerHTML = ACTIVITIES[actIndex];
+      }
+    }, 4500);
+
+    // Dynamic Live Visitor Simulation
+    setInterval(() => {
+      const count = Math.floor(Math.random() * 25) + 145;
+      const visitorEl = document.getElementById('live-visitor-count');
+      if (visitorEl) {
+        visitorEl.innerText = `🟢 ${count} Wholesalers & Distributors Active Now`;
+      }
+    }, 4000);
+  </script>
+</body>
+
+</html>
