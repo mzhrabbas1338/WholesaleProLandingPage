@@ -48,11 +48,13 @@
       scroll-behavior: smooth;
     }
 
+    html,
     body {
       background-color: var(--bg-dark);
       color: var(--text-main);
       font-family: var(--font-body);
       overflow-x: hidden;
+      max-width: 100vw;
       line-height: 1.6;
     }
 
@@ -1187,7 +1189,16 @@
       font-size: 0.92rem;
     }
 
+    /* Comprehensive Mobile & Responsive Media Queries */
     @media (max-width: 900px) {
+      header {
+        top: 10px;
+        padding: 0 10px;
+      }
+
+      .nav-container {
+        padding: 8px 16px;
+      }
 
       .nav-links,
       .nav-actions {
@@ -1198,21 +1209,304 @@
         display: flex;
       }
 
+      .mobile-drawer {
+        top: 65px;
+        left: 10px;
+        right: 10px;
+        padding: 16px;
+      }
+
       .installer-download-card {
         flex-direction: column;
         text-align: center;
+        padding: 24px 20px;
       }
 
       .tab-content.active {
         grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px 20px;
       }
 
       .calc-card {
         grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px 20px;
       }
 
       .activity-ticker {
         display: none;
+      }
+
+      .docs-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 44px 16px 36px;
+      }
+
+      .hero-title {
+        font-size: clamp(1.9rem, 7.5vw, 3rem);
+        margin-bottom: 16px;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 28px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        padding: 14px 20px !important;
+        font-size: 0.98rem !important;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .installer-info h3 {
+        font-size: 1.25rem;
+      }
+
+      .installer-meta {
+        justify-content: center;
+        gap: 8px;
+        font-size: 0.8rem;
+      }
+
+      .installer-meta span {
+        padding: 3px 10px;
+      }
+
+      .installer-download-card .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .dashboard-preview-wrapper {
+        padding: 6px;
+        border-radius: 16px;
+      }
+
+      .preview-header {
+        padding: 0 12px;
+        height: 40px;
+      }
+
+      .preview-title {
+        font-size: 0.72rem;
+        max-width: 180px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .stats-section {
+        padding: 36px 16px;
+        margin-top: 40px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 12px;
+      }
+
+      .stat-number {
+        font-size: 2.1rem;
+      }
+
+      .stat-label {
+        font-size: 0.82rem;
+      }
+
+      .showcase-section,
+      .docs-section,
+      .calculator-section,
+      .pricing-section,
+      .faq-section {
+        padding: 48px 16px;
+      }
+
+      .tab-buttons {
+        display: flex;
+        gap: 8px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        justify-content: flex-start;
+        margin-bottom: 24px;
+        scrollbar-width: none;
+      }
+
+      .tab-buttons::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 9px 18px;
+        font-size: 0.85rem;
+      }
+
+      .tab-content {
+        padding: 20px 16px;
+        border-radius: 18px;
+      }
+
+      .tab-text h3 {
+        font-size: 1.35rem;
+        margin-bottom: 12px;
+      }
+
+      .tab-text p {
+        font-size: 0.92rem;
+        margin-bottom: 16px;
+      }
+
+      .tab-visual {
+        padding: 16px;
+        border-radius: 14px;
+      }
+
+      .receipt-paper {
+        padding: 14px;
+        font-size: 0.78rem;
+      }
+
+      .code-box {
+        font-size: 0.8rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .docs-container {
+        padding: 20px 16px;
+        border-radius: 18px;
+      }
+
+      .docs-title {
+        font-size: 1.35rem;
+      }
+
+      .docs-header .btn-user-manual {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .docs-tabs {
+        display: flex;
+        gap: 6px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+
+      .docs-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .docs-tab {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 8px 14px;
+        font-size: 0.82rem;
+      }
+
+      .docs-body {
+        padding: 18px 14px;
+        font-size: 0.88rem;
+        max-height: 360px;
+      }
+
+      .savings-val {
+        font-size: 2.4rem;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .pricing-card {
+        padding: 28px 18px;
+        border-radius: 20px;
+      }
+
+      .pricing-card .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .plan-price {
+        font-size: 2.3rem;
+      }
+
+      .faq-question {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+      }
+
+      .faq-answer {
+        padding: 0 18px 16px;
+        font-size: 0.88rem;
+      }
+
+      .whatsapp-float {
+        bottom: 18px;
+        right: 18px;
+        width: 52px;
+        height: 52px;
+        font-size: 1.4rem;
+      }
+
+      footer {
+        padding: 36px 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo span {
+        font-size: 1.15rem;
+      }
+
+      .version-tag {
+        display: none;
+      }
+
+      .hero-badges-wrapper {
+        gap: 6px;
+      }
+
+      .floating-feature-pill,
+      .visitor-pill {
+        font-size: 0.74rem;
+        padding: 4px 10px;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
       }
     }
   </style>
@@ -1290,8 +1584,11 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="/download" class="btn btn-shimmer" style="padding: 15px 34px; font-size: 1.08rem;">
+      <a href="https://gofile.io/d/4hdDs3" target="_blank" class="btn btn-shimmer" style="padding: 15px 34px; font-size: 1.08rem;">
         💾 Download Desktop App (.exe)
+      </a>
+      <a href="/" class="btn btn-primary" style="padding: 15px 30px; font-size: 1.08rem;">
+        🚀 Launch Web App
       </a>
       <a href="https://gofile.io/d/9mjpU3" target="_blank" class="btn btn-secondary btn-user-manual"
         style="padding: 15px 30px; font-size: 1.08rem;">
@@ -1316,7 +1613,7 @@
         </div>
       </div>
       <div>
-        <a href="/download" class="btn btn-emerald" style="padding: 14px 28px; font-size: 1.05rem;">
+        <a href="https://gofile.io/d/4hdDs3" target="_blank" class="btn btn-emerald" style="padding: 14px 28px; font-size: 1.05rem;">
           ⬇️ Direct Download .exe
         </a>
       </div>
@@ -1703,7 +2000,7 @@
 
     // Attach click listeners on load
     document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll('a[href="/download"]').forEach(btn => {
+      document.querySelectorAll('a[href="/download"], a[href="https://gofile.io/d/4hdDs3"]').forEach(btn => {
         btn.addEventListener('click', handleExeDownload);
       });
       document.querySelectorAll('a[href="WholeSale_Pro_Master_Documentation_and_Sales_Manual.docx"], a[href="https://gofile.io/d/9mjpU3"], a.btn-user-manual').forEach(btn => {
